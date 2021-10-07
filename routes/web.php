@@ -13,12 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Make a Route and Link to it
+//Store Blog Posts as HTML Files
 Route::get('/', function () {
     return view('posts');
 });
 
-Route::get('post', function () {
-    return view('post');
+Route::get('posts/{post}', function ($slug) {
+    $path = __DIR__ . "/../resources/posts/{$slug}.html";
+
+    if(! file_exists($path)){
+        return redirect('/');
+    }
+
+    $post = file_get_contents($path);
+
+    return view('post',['post' => $post]);
 });
 
