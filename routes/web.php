@@ -13,8 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Include CSS and JavaScript
+//Make a Route and Link to it
 Route::get('/', function () {
-    return view('welcome');
+    return view('posts');
+});
+
+Route::get('post', function () {
+    return view('post');
 });
 
