@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// How a route loads a view
+Route::get('/hello', function () {
+    return ['welcome'];
+});
+
 Route::get('/', function () {
-    return view('welcome');
+    return ['foo' => 'bar']; //return json 
 });
