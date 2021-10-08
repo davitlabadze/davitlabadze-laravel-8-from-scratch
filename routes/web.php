@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,25 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Use Caching for Expensive Operations
+//Use the Filesystem Class to Read a Directory
 Route::get('/', function () {
-    return view('posts');
+    $posts = Post::all();
+    return view('posts',['posts' => $posts]);
 });
 
 Route::get('posts/{post}', function ($slug) {
     
-
-    if(! file_exists($path = __DIR__ . "/../resources/posts/{$slug}.html")){
-        return redirect('/');
-    }
-
-     // 1200 change 3600 or:
-    // now()->addHour()
-    // now()->addDays()
-    // now()->addWeek()
-    // now()->addMinute(20)
-    $post = cache()->remember("posts.{$slug}", 1200, fn() => file_get_contents($path));
-    
+    $post = Post::find($slug);
 
     return view('post',['post' => $post]);
 })->where('post', '[A-z_\-]+');
