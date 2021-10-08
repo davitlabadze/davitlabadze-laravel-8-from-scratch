@@ -16,7 +16,7 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 |
 */
 
-//Find a Composer Package for Post Metadata
+//Collection Sorting and Caching Refresher
 Route::get('/', function () {
 
    return view('posts', ['posts' => Post::all()]);

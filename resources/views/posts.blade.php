@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Find a Composer Package for Post Metadata</title>
+    <title>Collection Sorting and Caching Refresher</title>
     <link rel="stylesheet" href="/app.css">
 </head>
 <body>
