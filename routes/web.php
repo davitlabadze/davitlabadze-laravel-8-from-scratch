@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Store Blog Posts as HTML Files
+//Route Wildcard Constraints
 Route::get('/', function () {
     return view('posts');
 });
@@ -28,5 +28,5 @@ Route::get('posts/{post}', function ($slug) {
     $post = file_get_contents($path);
 
     return view('post',['post' => $post]);
-});
+})->where('post', '[A-z_\-]+');
 
