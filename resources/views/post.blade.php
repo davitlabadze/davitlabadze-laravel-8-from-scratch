@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Use the Filesystem Class to Read a Directory</title>
+    <title>Find a Composer Package for Post Metadata</title>
     <link rel="stylesheet" href="/app.css">
 </head>
 <body>
     <article>
-        <?= $post ?> 
+        <h1>
+            <?=$post->title; ?> 
+        </h1>
+
+        <div>
+            <?=$post->body; ?> 
+            
+        </div>
     </article>
 
     <a href="/">Go Back</a>

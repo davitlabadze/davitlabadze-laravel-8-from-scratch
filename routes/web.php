@@ -1,7 +1,9 @@
 <?php
 
 use App\Models\Post;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
+use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +16,62 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Use the Filesystem Class to Read a Directory
+//Find a Composer Package for Post Metadata
 Route::get('/', function () {
-    $posts = Post::all();
-    return view('posts',['posts' => $posts]);
+
+   return view('posts', ['posts' => Post::all()]);
+
+
+
+
+    // $posts = collect(File::files(resource_path("posts")))
+    //     ->map(fn($file) => YamlFrontMatter::parseFile($file))
+    //     ->map(fn($document)=> new Post(
+    //         $document->title,
+    //         $document->excerpt,
+    //         $document->date,
+    //         $document->body(),
+    //         $document->slug  
+    //     ));
+
+
+
+    // $files = File::files(resource_path("posts"));
+
+
+    // $posts = array_map(function ($file){
+    //     $document = YamlFrontMatter::parseFile($file);
+
+    //     return new Post(
+    //         $document->title,
+    //         $document->excerpt,
+    //         $document->date,
+    //         $document->body(),
+    //         $document->slug  
+    //     );
+    // }, $files);
+
+    
+
+
+
+    // $posts = [];
+
+    // foreach($files as $file){
+    //     $document = YamlFrontMatter::parseFile($file);
+
+    //     $posts[] = new Post(
+    //         $document->title,
+    //         $document->excerpt,
+    //         $document->date,
+    //         $document->body(),
+    //         $document->slug
+
+    //     );
+    // }
+
+
+    // return view('posts',['posts' => $posts]);
 });
 
 Route::get('posts/{post}', function ($slug) {
