@@ -16,68 +16,13 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 |
 */
 
-//Collection Sorting and Caching Refresher
+//A Few Tweaks and Consideration
 Route::get('/', function () {
 
    return view('posts', ['posts' => Post::all()]);
-
-
-
-
-    // $posts = collect(File::files(resource_path("posts")))
-    //     ->map(fn($file) => YamlFrontMatter::parseFile($file))
-    //     ->map(fn($document)=> new Post(
-    //         $document->title,
-    //         $document->excerpt,
-    //         $document->date,
-    //         $document->body(),
-    //         $document->slug  
-    //     ));
-
-
-
-    // $files = File::files(resource_path("posts"));
-
-
-    // $posts = array_map(function ($file){
-    //     $document = YamlFrontMatter::parseFile($file);
-
-    //     return new Post(
-    //         $document->title,
-    //         $document->excerpt,
-    //         $document->date,
-    //         $document->body(),
-    //         $document->slug  
-    //     );
-    // }, $files);
-
-    
-
-
-
-    // $posts = [];
-
-    // foreach($files as $file){
-    //     $document = YamlFrontMatter::parseFile($file);
-
-    //     $posts[] = new Post(
-    //         $document->title,
-    //         $document->excerpt,
-    //         $document->date,
-    //         $document->body(),
-    //         $document->slug
-
-    //     );
-    // }
-
-
-    // return view('posts',['posts' => $posts]);
 });
 
 Route::get('posts/{post}', function ($slug) {
-    
-    $post = Post::find($slug);
-
-    return view('post',['post' => $post]);
-})->where('post', '[A-z_\-]+');
+  return view('post',['post' => Post::findOrFail($slug)]);
+});
 
