@@ -10,11 +10,11 @@
         </h1>
 
         <p>
-            category \ <a href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a>
+            By <a href="#">{{ $post->user->name }}</a> in <a href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a>
         </p>
 
     <div>
-        {{ $post->excerpt }}
+        {!! $post->excerpt !!}
     </div>
     </article>
     @endforeach
