@@ -10,9 +10,5 @@ class Post extends Model
     use HasFactory;
 
     protected $guarded = [];
-    // protected $fillable = ['title','excerpt','body'];
 
-    //php artisan tinker
-    // use App\Models\Post
-    //Post::create([]);
 }
