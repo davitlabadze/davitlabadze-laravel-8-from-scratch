@@ -5,7 +5,7 @@
 
     <div>
         <header class="mb-4">
-            <h3 class="font-bold">dato</h3>
+            <h3 class="font-bold">Marry</h3>
             <p class="text-xs">posted 
                 <time>8 mounths ago</time>
             </p>
