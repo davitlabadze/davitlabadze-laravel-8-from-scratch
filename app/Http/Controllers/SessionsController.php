@@ -22,13 +22,11 @@ class SessionsController extends Controller
         ]);
 
 
-        if (auth()->attempt($attributes)) {
+        if (!auth()->attempt($attributes)) {
             throw ValidationException::withMessages([
                 'email' => 'Your provided credentials could not be verofied'
             ]);   
         }
-
-        
 
         session()->regenerate();
             
