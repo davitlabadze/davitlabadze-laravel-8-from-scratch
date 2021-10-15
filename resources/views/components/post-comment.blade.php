@@ -3,14 +3,14 @@
 
     <article class="flex space-x-4">
         <div class="flex-shrink-0">
-            <img src="https://i.pravatar.cc/100?u={{ $comment->id }}" alt="" class="rounded-xl">
+            <img src="https://i.pravatar.cc/100?u={{ $comment->user_id }}" alt="" class="rounded-xl">
         </div>
 
         <div>
             <header class="mb-4">
                 <h3 class="font-bold">{{ $comment->author->username }}</h3>
                 <p class="text-xs">posted 
-                    <time>{{ $comment->created_at }}</time>
+                    <time>{{ $comment->created_at->format("F j, Y, g:i a") }}</time>
                 </p>
             
             </header>
