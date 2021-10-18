@@ -10,7 +10,7 @@ class PostController extends Controller
     public function index()
     {
      
-
+        
         return view('posts.index', [
             'posts' => Post::latest()->filter(
                 request(['search','category','author'])
@@ -28,11 +28,13 @@ class PostController extends Controller
         return view('posts.create');
     }
     
-    public function store(){
+    public function store()
+    {
 
        $attributes = request()->validate([
 
         'title' => 'required',
+        'thumbnail' => 'required|image',
         'slug' => ['required', Rule::unique('posts','slug')],
         'excerpt' => 'required',
         'body' => 'required',
@@ -40,6 +42,7 @@ class PostController extends Controller
        ]);
     
        $attributes['user_id'] = auth()->id();
+       $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
 
        Post::create($attributes);
 
