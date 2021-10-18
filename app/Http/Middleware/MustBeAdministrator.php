@@ -17,7 +17,9 @@ class MustBeAdministrator
     public function handle(Request $request, Closure $next)
     {
 
-
+        if(auth()->guest()){
+            abort(403);
+        }
 
         if (auth()->user()->username != 'dato') {
             abort(403);
