@@ -30,7 +30,7 @@ class Post extends Model
             $query->whereHas('author', fn($query) => 
                 $query->where('username',$author)
             )
-        );
+        ); # TODO: remove blank lines below
           
     
     
@@ -50,6 +50,6 @@ class Post extends Model
     public function author()
     {
         return $this->belongsTo(User::class,'user_id');
-    }
+    } # TODO: remove blank line below
 
 }

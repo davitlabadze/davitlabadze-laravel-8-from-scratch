@@ -6,7 +6,7 @@
         name="{{ $name }}"
         id="{{ $name }}"
         required
-    >{{ $slot ?? old($name) }}</textarea>
+    >{{ $slot ?? old($name) }}</textarea> # TODO: remove blank line below
 
 
     <x-form.error name="{{ $name }}" />

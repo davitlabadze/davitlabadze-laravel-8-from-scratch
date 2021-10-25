@@ -6,7 +6,7 @@ use App\Models\Category;
 use Illuminate\View\Component;
 
 class CategoryDropdown extends Component
-{
+{ # TODO: remove blank line below
     
     /**
      * Get the view / contents that represent the component.    

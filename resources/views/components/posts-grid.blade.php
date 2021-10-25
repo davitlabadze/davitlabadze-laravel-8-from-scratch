@@ -1,5 +1,5 @@
 
-@props(['posts'])
+@props(['posts']) # TODO: remove blank line above
 
 @if ($posts->count()>0) 
 

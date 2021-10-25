@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+# TODO: remove unused imports
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -13,9 +14,13 @@ class RegisterController extends Controller
     }
 
     public function store()
-    {
+    { # TODO: remove blank lines below
 
         
+        # TODO 
+        # validation logic should be extracted
+        # Into custom request
+        # @see https://laravel.com/docs/8.x/validation#form-request-validation
        $attributes = request()->validate([
            'name' => 'required|max:255',
            'username' => 'required|min:3|max:255|unique:users,username',

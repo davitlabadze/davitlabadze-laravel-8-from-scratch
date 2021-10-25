@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
+use App\Models\Post; # TODO: remove 1 blank line below
 
 
 class PostController extends Controller
 {
     public function index()
-    {
+    { # TODO: remove blank lines below
      
         
         return view('posts.index', [
@@ -21,7 +21,7 @@ class PostController extends Controller
     public function show(Post $post)
     {
         return view('posts.show',['post' => $post]);
-    }
+    } # TODO: remove blank lines below
     
 
 

@@ -50,7 +50,7 @@
                     Subscribe for Updates
                 </a>
             </div>
-        </nav>
+        </nav> # TODO: remove 2 blank lines below
 
         
 
