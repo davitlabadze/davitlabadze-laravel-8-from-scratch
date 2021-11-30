@@ -60,3 +60,7 @@ Also post your opinion in the comments.
 
 ## Database structure
 !['db'](appScreen/db.png)
+
+## Resources
+
+* [DrawSQL](https://drawsql.app/redberry-14/diagrams/scratch)
