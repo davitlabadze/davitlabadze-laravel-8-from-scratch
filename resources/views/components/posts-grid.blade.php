@@ -1,7 +1,6 @@
 
-@props(['posts']) # TODO: remove blank line above
-
-@if ($posts->count()>0) 
+@props(['posts'])
+@if ($posts->count()>0)
 
     <x-post-featured-card :post="$posts[0]"/>
 

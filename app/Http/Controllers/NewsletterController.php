@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\Newsletter;
 use Exception;
-use Illuminate\Validation\ValidationException; # TODO: remove one blank line below
-
+use Illuminate\Validation\ValidationException;
 
 class NewsletterController extends Controller
 {
@@ -20,7 +19,6 @@ class NewsletterController extends Controller
                 'email' => 'This email coul not be added to our newsletter list.'
             ]);
         }
-        return redirect('/')->with('success', 'You are now signed up for our newsletter!'); # TODO: remove blank line below
-
+        return redirect('/')->with('success', 'You are now signed up for our newsletter!');
     }
 }

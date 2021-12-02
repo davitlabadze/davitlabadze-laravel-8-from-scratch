@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-# TODO: remove unused imports
+use App\Http\Requests\StoreRegisterRequest;
+use App\Models\Post;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -13,25 +13,12 @@ class RegisterController extends Controller
         return view('register.create');
     }
 
-    public function store()
-    { # TODO: remove blank lines below
+    public function store(StoreRegisterRequest $attributes)
+    {
+        $user = User::create($attributes->validated());
 
-        
-        # TODO 
-        # validation logic should be extracted
-        # Into custom request
-        # @see https://laravel.com/docs/8.x/validation#form-request-validation
-       $attributes = request()->validate([
-           'name' => 'required|max:255',
-           'username' => 'required|min:3|max:255|unique:users,username',
-           'email' => 'required|email|max:255|unique:users,email',
-           'password' => 'required|min:7|max:255'
-       ]);
+        auth()->login($user);
 
-       $user = User::create($attributes);
-
-      auth()->login($user);
-       
-       return redirect('/')->with('success','Your account has been created.');
+        return redirect('/')->with('success', 'Your account has been created.');
     }
 }

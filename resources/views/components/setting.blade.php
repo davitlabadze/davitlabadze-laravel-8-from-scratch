@@ -24,7 +24,5 @@
             </x-panel>
 
         </main>
-   </div> # TODO: remove blank lines below
-
-    
+   </div>
 </section>
