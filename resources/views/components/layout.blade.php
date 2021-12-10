@@ -61,7 +61,7 @@
                         @csrf
                         <div class="lg:py-3 lg:px-5 flex items-center">
                             <label for="email" class="hidden lg:inline-block">
-                                <img src="/images/mailbox-icon.svg" alt="mailbox letter">
+                                <img src="{{ asset('/images/mailbox-icon.svg') }}" alt="mailbox letter">
                             </label>
 
                             <div>
