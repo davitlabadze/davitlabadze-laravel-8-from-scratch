@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use MailchimpMarketing\ApiClient;
 
-
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -21,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        app()->bind(Newsletter::class, function(){
+        app()->bind(Newsletter::class, function () {
             $client=(new ApiClient)->setConfig([
                 'apiKey' => config('services.mailchimp.key'),
                 'server' => 'us5'
@@ -40,7 +39,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Model::unguard();
 
-        Gate::define('admin', function (User $user){
+        Gate::define('admin', function (User $user) {
             return $user->username == 'dato';
         });
 

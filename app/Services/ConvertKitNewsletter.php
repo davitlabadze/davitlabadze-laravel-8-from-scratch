@@ -9,5 +9,4 @@ class ConvertKitNewsletter implements Newsletter
         // subscribe the user with ConvertKit-specific
         // API requests.
     }
-
 }
