@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAdminPostRequest;
+use App\Models\Category;
 use App\Models\Post;
 
 class AdminPostController extends Controller
@@ -24,7 +25,8 @@ class AdminPostController extends Controller
 
     public function edit(Post $post)
     {
-        return view('admin.posts.edit', ['post' => $post]);
+        $categories = Category::all();
+        return view('admin.posts.edit', ['post' => $post,'categories' => $categories]);
     }
 
     public function update(StoreAdminPostRequest $attributes, Post $post)
