@@ -13,7 +13,7 @@
                         <img src="/images/lary-avatar.svg" alt="Lary avatar">
                         <div class="ml-3 text-left">
                             <h5 class="font-bold">
-                                <a href="/?authors={{ $post->author->username }}">{{ $post->author->name }}</a>
+                                <a href="{{ route('home') }}?authors={{ $post->author->username }}">{{ $post->author->name }}</a>
                             </h5>
                         </div>
                     </div>
@@ -21,7 +21,7 @@
 
                 <div class="col-span-8">
                     <div class="hidden lg:flex justify-between mb-6">
-                        <a href="/"
+                        <a href="{{ route('home') }}"
                             class="transition-colors duration-300 relative inline-flex items-center text-lg hover:text-blue-500">
                             <svg width="22" height="22" viewBox="0 0 22 22" class="mr-2">
                                 <g fill="none" fill-rule="evenodd">

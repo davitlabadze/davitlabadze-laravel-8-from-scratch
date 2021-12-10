@@ -14,7 +14,7 @@
     <section class="px-6 py-8">
         <nav class="md:flex md:justify-between md:items-center">
             <div>
-                <a href="/">
+                <a href="{{ route('home') }}">
                     <img src="/images/logo.svg" alt="Laracasts Logo" width="165" height="16">
                 </a>
             </div>
@@ -28,13 +28,13 @@
                         </x-slot>
 
                         @can('admin')
-                        <x-dropdown-item href="/admin/posts" :active="request()->is('admin/posts')">Dashboard</x-dropdown-item>
-                        <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')">New Post</x-dropdown-item>
+                        <x-dropdown-item href="{{ route('posts.index') }}" :active="request()->is('admin/posts')">Dashboard</x-dropdown-item>
+                        <x-dropdown-item href="{{ route('createPost') }}" :active="request()->is('admin/posts/create')">New Post</x-dropdown-item>
                         @endcan
 
                         <x-dropdown-item href="#" x-date="{}" @click.prevent="document.querySelector('#logout-form').submit()" >Log Out</x-dropdown-item>
 
-                        <form id="logout-form" action="/logout" method="POST" class="hidden">
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
                             @csrf
                         </form>
 
@@ -42,8 +42,8 @@
 
 
                 @else
-                    <a href="/register" class="text-xs font-bold uppercase">Register</a>
-                    <a href="/login" class="ml-6 text-xs font-bold uppercase">Log In</a>
+                    <a href="{{ route('register') }}" class="text-xs font-bold uppercase">Register</a>
+                    <a href="{{ route('login') }}" class="ml-6 text-xs font-bold uppercase">Log In</a>
 
                 @endauth
                 <a href="#newsletter" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
@@ -62,7 +62,7 @@
             <div class="mt-10">
                 <div class="relative inline-block mx-auto lg:bg-gray-200 rounded-full">
 
-                    <form method="POST" action="/newsletter" class="lg:flex text-sm">
+                    <form method="POST" action="{{ route('newsletter') }}" class="lg:flex text-sm">
                         @csrf
                         <div class="lg:py-3 lg:px-5 flex items-center">
                             <label for="email" class="hidden lg:inline-block">
