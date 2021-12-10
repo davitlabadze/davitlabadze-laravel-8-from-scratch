@@ -24,7 +24,7 @@
 
                         @can('admin')
                         <x-dropdown-item href="{{ route('posts.index') }}" :active="request()->is('admin/posts')">Dashboard</x-dropdown-item>
-                        <x-dropdown-item href="{{ route('createPost') }}" :active="request()->is('admin/posts/create')">New Post</x-dropdown-item>
+                        <x-dropdown-item href="{{ route('posts.create') }}" :active="request()->is('admin/posts/create')">New Post</x-dropdown-item>
                         @endcan
 
                         <x-dropdown-item href="#" x-date="{}" @click.prevent="document.querySelector('#logout-form').submit()" >Log Out</x-dropdown-item>

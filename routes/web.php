@@ -27,6 +27,5 @@ Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth'
 
 //admin
 Route::middleware('can:admin')->group(function () {
-    Route::view('admin/posts/create', 'admin.posts.create')->name('createPost');
-    Route::resource('admin/posts', AdminPostController::class)->except('show', 'create');
+    Route::resource('admin/posts', AdminPostController::class)->except('show');
 });

@@ -13,6 +13,12 @@ class AdminPostController extends Controller
         return view('admin.posts.index', ['posts' => Post::paginate(50)]);
     }
 
+    public function create()
+    {
+        $categories = Category::all();
+        return view('admin.posts.create', ['categories' => $categories]);
+    }
+
     public function store(StoreAdminPostRequest $attributes)
     {
         Post::create(array_merge($attributes->validated(), [
