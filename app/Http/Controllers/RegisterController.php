@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreRegisterRequest;
-use App\Models\Post;
 use App\Models\User;
 
 class RegisterController extends Controller
