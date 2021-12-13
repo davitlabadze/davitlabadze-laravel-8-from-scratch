@@ -19,6 +19,6 @@ class NewsletterController extends Controller
                 'email' => 'This email coul not be added to our newsletter list.'
             ]);
         }
-        return redirect('/')->with('success', 'You are now signed up for our newsletter!');
+        return redirect()->route('home')->with('success', 'You are now signed up for our newsletter!');
     }
 }
