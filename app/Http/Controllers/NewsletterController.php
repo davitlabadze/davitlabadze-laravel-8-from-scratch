@@ -2,23 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreNewsletterRequest;
 use App\Services\Newsletter;
 use Exception;
 use Illuminate\Validation\ValidationException;
+use App\Http\Requests\StoreNewsletterRequest;
 
 class NewsletterController extends Controller
 {
-    public function __invoke(StoreNewsletterRequest $attributes, Newsletter $newsletter)
+    public function __invoke(StoreNewsletterRequest $attribute, Newsletter $newsletter)
     {
-        $attributes->validated();
+        $attribute->validated();
+
         try {
             $newsletter->subscribe(request('email'));
         } catch (Exception $e) {
             throw ValidationException::withMessages([
-                'email' => 'This email coul not be added to our newsletter list.'
+                'email' => 'This email could not be added to our newsletter list.'
             ]);
         }
+
         return redirect()->route('home')->with('success', 'You are now signed up for our newsletter!');
     }
 }
